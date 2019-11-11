@@ -1,8 +1,10 @@
 {
   "name": "test-web",
   "private": true,
+  "main": "frontend/dashboard/src/index.ts",
   "scripts": {
     "gateway:dev": "yarn workspace @backend/gateway dev",
+    "dash:dev": "yarn workspace @frontend/dashboard dev",
     "typecheck": "lerna run typecheck",
     "lint": "tslint --project tsconfig.json -c tslint.json -t codeFrame backend/**/*.ts"
   },
@@ -15,5 +17,8 @@
     "hooks": {
       "pre-push": "yarn lint && yarn typecheck"
     }
-  }
+  },
+  "workspaces": [
+    "frontend/*"
+  ]
 }
